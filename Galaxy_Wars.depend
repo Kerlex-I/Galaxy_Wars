@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1655618402 source:c:\users\windows 10\onedrive\escritorio\galaxy_wars_proyecto\galaxy_wars\main.cpp
+	<iostream>
+	<allegro.h>
+	<stdlib.h>
+	<conio.h>
+
