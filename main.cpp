@@ -3,7 +3,17 @@
 #include <stdlib.h>
 #include <conio.h>
 
+
+
 using namespace std;
+
+int pos=1;
+int x=400, y=400;
+
+
+BITMAP *buffer;
+BITMAP *personaje;
+#include "Nave.cpp"
 
 int main()
 {
@@ -12,38 +22,16 @@ int main()
     install_keyboard();
     set_color_depth(32);
     set_gfx_mode(GFX_AUTODETECT_WINDOWED, 740,500,0,0);
-    BITMAP*buffer=create_bitmap(740,500);
-
-    int x1,x2,y1,y2;
-
-    x1=0;
-    y1=0;
-    x2=30;
-    y2=30;
+    BITMAP *personaje=load_bitmap("recursos/Enemigo.bmp", NULL);
+    buffer=create_bitmap(740,500);
+    Nave npersonaje = Nave(x,y,personaje);
 
     while( !key[ KEY_ESC]){
-        clear_to_color(buffer, 0x000000);
-        rectfill(buffer,x1,y1,x2,y2, 0xeaeae6);
-        blit (buffer,screen,0,0,0,0,740,500);
-        if (key[ KEY_RIGHT]){
-           x1 +=10;
-           x2 +=10;
-        }
+        npersonaje.mostrarNave();
+        npersonaje.moverDer();
+        npersonaje.moverIzq();
 
-        if (key[ KEY_LEFT]){
-           x1 -=10;
-           x2 -=10;
-        }
-
-        if (key[ KEY_UP]){
-           y1 -=10;
-           y2 -=10;
-        }
-           if (key[ KEY_DOWN]){
-           y1 +=10;
-           y2 +=10;
-        }
-        rest (10);
+        rest (15);
     }
 
     return 0;
