@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1655689172 source:c:\users\windows 10\onedrive\escritorio\galaxy_wars_proyecto\galaxy_wars\main.cpp
+1655753951 source:c:\users\windows 10\onedrive\escritorio\galaxy_wars_proyecto\galaxy_wars\main.cpp
 	<iostream>
 	<allegro.h>
 	<stdlib.h>
 	<conio.h>
 	"Nave.cpp"
 
-1655687992 c:\users\windows 10\onedrive\escritorio\galaxy_wars_proyecto\galaxy_wars\nave.cpp
+1655755534 c:\users\windows 10\onedrive\escritorio\galaxy_wars_proyecto\galaxy_wars\nave.cpp
 	<allegro.h>
 	<iostream>
 
