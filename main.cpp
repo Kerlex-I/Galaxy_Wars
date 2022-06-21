@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <conio.h>
 
-
 using namespace std;
 
 int pos=1;
@@ -18,8 +17,8 @@ BITMAP *fondo2;
 BITMAP *fondo3;
 BITMAP *cursor;
 int cdw = 0, cont = 0;
-int opcion;
-bool salir = true;
+int opcion = 0;
+
 #include "Nave.cpp"
 #include "Menu.cpp"
 
@@ -45,23 +44,23 @@ int main()
     cursor=load_bitmap("recursos/cursor.bmp",NULL);
     buffer=create_bitmap(800,500);
 
-
-
-
     Nave npersonaje = Nave(x,y, ndisparos, personaje);
-    Menu nmenu = Menu(fondo1,fondo2,fondo3,cursor,salir,opcion);
+    Menu nmenu = Menu(fondo1,fondo2,fondo3,cursor,opcion);
 
 
 
     while(nmenu.getSalida()){
         nmenu.mostrarMenu();
     }
-    while( !key[ KEY_ESC]){
-        npersonaje.mostrarNave();
-        npersonaje.moverDer();
-        npersonaje.moverIzq();
-        rutinaDisparos(cdw, npersonaje,maxdisp,cont);
-        rest (15);
+
+    if(nmenu.getOpcion() != 0){
+        while( !key[ KEY_ESC]){
+            npersonaje.mostrarNave();
+            npersonaje.moverDer();
+            npersonaje.moverIzq();
+            rutinaDisparos(cdw, npersonaje,maxdisp,cont);
+            rest (15);
+        }
     }
 
     return 0;
