@@ -28,9 +28,9 @@ public:
         my = y;
     }
     void mostrarNave(){
-        blit(espacio,buffer,0,0,0,0,900,500);
+        blit(espacio,buffer,0,0,0,0,800,500);
         masked_blit(personaje,buffer, 0, 0, mx, my, 50, 50);
-        blit(buffer,screen,0,0,0,0,900,500);
+        blit(buffer,screen,0,0,0,0,800,500);
     }
     float getMx(){
         return mx;

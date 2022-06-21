@@ -10,3 +10,19 @@
 	<allegro.h>
 	<iostream>
 
+1655845591 source:c:\users\univalle2\desktop\proyecto\galaxy_wars\main.cpp
+	<iostream>
+	<allegro.h>
+	<stdlib.h>
+	<conio.h>
+	"Nave.cpp"
+	"Menu.cpp"
+
+1655842007 c:\users\univalle2\desktop\proyecto\galaxy_wars\nave.cpp
+	<allegro.h>
+	<iostream>
+
+1655845631 c:\users\univalle2\desktop\proyecto\galaxy_wars\menu.cpp
+	<iostream>
+	<allegro.h>
+
