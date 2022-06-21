@@ -7,7 +7,7 @@ using namespace std;
 
 int pos=1;
 int x=400, y=400;
-const int maxdisp = 8, ANCHO = 800, ALTO = 500;
+const int maxdisp = 9, ANCHO = 800, ALTO = 500;
 int ndisparos=0;
 BITMAP *buffer;
 BITMAP *personaje;
@@ -73,7 +73,7 @@ void rutinaDisparos(int &cdw, Nave &n1, int maxdisp, int &cont){
                 disparos[n1.getNdisparos()].x = n1.getMx() + 22;
                 disparos[n1.getNdisparos()].y = n1.getMy();
                 disparos[n1.getNdisparos()].dx = 0;
-                disparos[n1.getNdisparos()].dy = -8;
+                disparos[n1.getNdisparos()].dy = -6;
                 cdw=1;
             }
 
