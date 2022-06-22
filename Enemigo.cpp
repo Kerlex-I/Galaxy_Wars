@@ -8,7 +8,7 @@ class Enemigo{
     private:
     int mx;
     float my;
-    int ndisparos = 0;
+    int ndisparos;
     BITMAP *enemigo;
 
 public:
@@ -26,6 +26,9 @@ public:
     void setMy(int y){
         my = y;
     }
+    void setNdisparos(int nd){
+        ndisparos = nd;
+    }
 
     int getMx(){
         return mx;
@@ -36,6 +39,14 @@ public:
     void mostrarEnemigo(){
         masked_blit(personaje,buffer, 0, 7, mx, my, 50, 45);
     }
-
+    int getNdisparos(){
+        return ndisparos;
+    }
+    void sumarAndisparos(int a){
+        ndisparos+=a;
+    }
+    void restarAndisparos(int a){
+        ndisparos-=a;
+    }
 
 };

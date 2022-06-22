@@ -8,7 +8,7 @@ class Nave{
 private:
     float mx;
     float my;
-    int ndisparos = 0;
+    int ndisparos;
     BITMAP *personaje;
 
 
