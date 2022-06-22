@@ -8,6 +8,8 @@ using namespace std;
 int pos=1;
 const int maxdisp = 9, ANCHO = 800, ALTO = 500, numenemigos = 50;
 int ndisparos=0;
+int indice=-1;
+int indice2=-1;
 BITMAP *buffer;
 BITMAP *personaje;
 BITMAP *enemigo;
@@ -22,15 +24,17 @@ int cdw = 0, cont = 0;
 int opcion = 0;
 
 #include "Nave.cpp"
+#include "Enemigo.cpp"
 #include "Menu.cpp"
-
+void pintaEnemigos(Enemigo e[]);
 struct Balas{
     int x,y;
     int dx,dy;
 }disparos[maxdisp];
 Balas disparose[maxdisp];
+
 void rutinaDisparos(int &cdw, Nave &n1, int maxdisp, int &cont);
-void iniciarEnemigo(Nave e[],int nd);
+
 
 int main()
 {
@@ -51,8 +55,15 @@ int main()
     buffer=create_bitmap(800,500);
 
     Nave npersonaje = Nave(ANCHO/2,ALTO-100, ndisparos, personaje);
-    Nave nenemigo[50];
-    iniciarEnemigo(nenemigo,ndisparos);
+    //Enemigo nenemigo = Enemigo(154,150,ndisparos,enemigo);
+    Enemigo nenemigo[22];
+    for(int i=0; i<2; i++){
+        for(int j=0; j<11; j++){
+            indice++;
+            nenemigo[indice] = Enemigo(100+j*54,150+i*50,ndisparos,enemigo);
+        }
+    }
+
     Menu nmenu = Menu(fondo1,fondo2,fondo3,cursor,opcion);
 
 
@@ -64,11 +75,11 @@ int main()
     if(nmenu.getOpcion() != 0){
         while( !key[ KEY_ESC]){
             blit(espacio,buffer,0,0,0,0,800,500);
+            pintaEnemigos(nenemigo);
             npersonaje.mostrarNave();
             npersonaje.moverDer();
             npersonaje.moverIzq();
             rutinaDisparos(cdw, npersonaje,maxdisp,cont);
-
 
             blit(buffer,screen,0,0,0,0,800,500);
             rest (15);
@@ -79,13 +90,10 @@ int main()
     return 0;
 }
 END_OF_MAIN();
-void iniciarEnemigo(Nave e[], int nd){
-    int indice = -1;
-    for(int i=0;i<5;i++){
-        for(int j=0;j<11;j++){
-            indice++;
-            e[indice] = Nave(140+j*30,100+i*24,nd,enemigo);
-        }
+
+void pintaEnemigos(Enemigo e[]){
+    for(int i=0;i<22;i++){
+        e[i].mostrarEnemigo();
     }
 }
 void rutinaDisparos(int &cdw, Nave &n1, int maxdisp, int &cont){

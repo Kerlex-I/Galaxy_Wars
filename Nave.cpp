@@ -27,17 +27,16 @@ public:
     void setMy(float y){
         my = y;
     }
-
-    void mostrarNave(){
-        masked_blit(personaje,buffer, 0, 0, mx, my, 50, 50);
-    }
-
     float getMx(){
         return mx;
     }
     float getMy(){
 
         return my;
+    }
+
+    void mostrarNave(){
+        masked_blit(personaje,buffer, 0, 0, mx, my, 50, 50);
     }
 
     void moverDer(){
